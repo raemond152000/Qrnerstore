@@ -1,105 +1,71 @@
-
 <?php require_once '../partials/template.php'; ?>
 
+<?php function get_page_content() { 
+	global $conn;  ?>
 
-<!-- insert your page content here -->
+	<div class="container">
+		<div class="jumbotron bg-dark text-light text-center mt-5">
+			<h4>Register</h4>
+		</div> <!-- end jumbo -->
+
+		<form>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="firstname">First Name:</label>
+						<input type="text" id="firstname" class="form-control" name="firstname" placeholder="Enter your first name here">
+						<span class="validation"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="lastname">Last Name:</label>
+						<input type="text" id="lastname" class="form-control" name="lastname" placeholder="Enter your last name here">
+						<span class="validation"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email:</label>
+						<input type="email" id="email" class="form-control" name="email" placeholder="Enter your email here">
+						<span class="validation"></span>
+					</div>
+
+					<div class="form-group mb-5">
+						<label for="address">Address:</label>
+						<input type="text" id="address" class="form-control" name="address" placeholder="Enter your address here">
+						<span class="validation"></span>
+					</div>
+				</div> <!-- end left side -->
+
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="username">Username:</label>
+						<input type="text" id="username" class="form-control" name="username" placeholder="Enter your username here">
+						<span class="validation"></span>
+					</div>					
+
+					<div class="form-group">
+						<label for="password">Password:</label>
+						<input type="password" id="password" class="form-control" name="password" placeholder="Enter your password here">
+						<span class="validation"></span>
+					</div>					
+
+					<div class="form-group">
+						<label for="confirm_password">Confirm Password:</label>
+						<input type="password" id="confirm_password" class="form-control" name="confirm_password" placeholder="Enter your confirm password here">
+						<span class="validation"></span>
+					</div>	
+				</div> <!-- end right side -->
+			</div> <!-- end row -->
+		</form> <!-- end form -->
+		
+		<div class="text-center py-4 mb-5">
+			<a href="./login.php" class="btn btn-secondary"> Login </a>
+			<button id="add_user" type="button" class="btn btn-primary">Register</button>
+		</div>
 
 
-<?php function get_page_content() { ?>
-
-	<div class="container bg-primary rounded p-3 mt-5">
-		<h1 class="text-center"> Register </h1>
-		<form id="register_form" action="../controllers/register_endpoint.php" method="POST">
-			<div class="form-group">
-				<label for="username">Username</label>
-				<input type="text" name="username" id="username" class="form-control">
-				<span></span>
-			</div>	
-	
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input type="password" name="password" id="password" class="form-control">
-				<span></span>
-			</div>
-			<div class="form-group">
-				<label for="confirm_password">Confirm Password</label>
-				<input type="password" name="confirm_password" id="confirm_password" class="form-control">
-				<span></span>
-			</div>
-			<button id="registerBtn" type="button" class="btn btn-outline-dark btn-block mb-5">Register</button>
-		</form>
-	</div>
-	<script>
-
-		$('#registerBtn').click( () => {
-			//put validation here
-			let errorFlag = false;
-			const username = $('#username').val();
-			//username field is empty
-			if (username == 0) {
-				$('#username').next().css('color', 'red');
-				$('#username').next().html('this field is required');
-				errorFlag = true;
-			} else {
-				//username already exists
-				$.ajax({
-					url : '../controllers/check_username.php',
-					method: 'post',
-					data: {username:username},
-					async: false //you need to complete this before proceeding
-				}).done( data => {
-					//if uname exists, send me an error. else allow it 
-						console.log(data);
-					if (data == "meron") {
-						$('#username').next().css('color', 'red');
-						$('#username').next().html('username is already taken');
-						errorFlag = true;
-					} else {
-						//pag hindi meron, anong mangyayari?
-						//username is available
-						$('#username').next().css('color', 'green');
-						$('#username').next().html('username available');
+	</div> <!-- end container -->
 
 
-					}
-				});
-			}
 
-			const password = $('#password').val();
-			const confirmPassword = $('#confirm_password').val();
-			
-
-			//password field is empty
-			if (password.length == 0) {
-				$('#password').next().css('color', 'red');
-				$('#password').next().html('this field is required');
-				errorFlag = true;
-			} else {
-				$('#password').next().html(''); //removes the error msg
-				//passwords do not match
-				if (password !== confirmPassword) {
-					$('#confirm_password').next().css('color', 'red');
-					$('#confirm_password').next().html('passwords do not match');
-					errorFlag = true;
-				}
-			}
-			
-			if (errorFlag == false) {
-				$('#register_form').submit();
-			}
-			
-		});
-
-			if (true) {
-
-			} else {
-				
-			}
-
-			
-					
-
-					
-
-	</script>
-<?php }; ?>
+<?php } ?>
