@@ -1,6 +1,7 @@
 <?php require_once '../partials/template.php'; ?>
 
-<?php function get_page_content() { ?>
+<?php function get_page_content() {
+if(!isset($_SESSION['user']) || (isset($_SESSION['user'])) && $_SESSION['user']['roles_id'] ==2){ ?>
 
 <?php require_once '../controllers/connect.php';
 
@@ -105,6 +106,9 @@ global $conn; //refers to the $conn outside the function
 		</div> <!-- end of row -->
 	</div> <!-- end container -->
 
-
+<?php } else {
+	header('location: ./error.php');
+	
+} ?>
 
 <?php } ?>
