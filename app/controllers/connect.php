@@ -1,9 +1,9 @@
 <?php 
 
 $host = 'db4free.net';
-$username = 'qrnerstoreking15';
+$username = 'basement15';
 $password = 'secretsecret';
-$dbname = 'qrnerstore15_db';
+$dbname = 'basement15_db';
 
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
