@@ -32,7 +32,17 @@
 					 </span></a>
 				</li>
 
+
+
 			<?php } elseif(isset($_SESSION['user']) && ($_SESSION['user']['roles_id']==1)) {?>
+
+				<li class="nav-item">
+					<a class="nav-link" href="orders.php"> Orders </a>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="users.php"> Users </a>
+				</li>
 
 				<li class="nav-item">
 					<a href="./items.php" class="nav-link">Items</a>

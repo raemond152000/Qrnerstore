@@ -1,0 +1,10 @@
+
+Client ID
+AUdnTvyCG5zvOsqPUDJx6bgfc9VW4Re4okiOp592oI9ntNdkgq8eaO378mVNZ0PHPZvsGxVVlezSz-Lh
+
+Secret
+EBBDR7DBGEczBIo2yU3lpo8upPCuNMBopEHUGyUjpqTMAj8_DkCMVy9bOC-JNmnB2ez33xmhySGMHLWA
+
+
+
+https://github.com/paypal/PayPal-PHP-SDK/wiki/Installation
